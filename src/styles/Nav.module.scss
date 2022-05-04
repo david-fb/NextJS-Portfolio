@@ -1,0 +1,31 @@
+@import "vars";
+.Nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;
+    padding: 0 5em;
+    //border-bottom: 1px solid #ddd;
+    position: fixed;
+}
+.Menu{
+    list-style: none;
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+    padding: .5em 0;
+    margin-bottom: -1px;
+
+    &__item{
+        margin-left: .5em;
+        a {
+            text-decoration: none;
+            padding: 0 1em;
+            color: $font-color-primary;
+        }
+        &-active, a:hover{
+            border-bottom: 1px solid $font-color-secondary;
+        }
+    }
+}

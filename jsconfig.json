@@ -7,7 +7,7 @@
             "@assets/*":["assets/*"],
             "@images/*":["assets/images/*"],
             "@components/*":["components/*"],
-            "@config/*":["config/*"]
+            "@config/*":["config/*"],
         }
     }
 }

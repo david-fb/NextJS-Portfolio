@@ -23,7 +23,7 @@ export default function Contact() {
     }
   };
   return (
-    <section className={styles.Contact}>
+    <section className={`PageSection ${styles.Contact}`} id="Contact">
       <h2 className={styles['Contact__title']}>Contact Me</h2>
       <div className={styles['Contact__content']}>
         <img src={imgEnvelope.src} alt="envelope" />
@@ -31,8 +31,6 @@ export default function Contact() {
           <input className={styles['Form__input-text']} type="text" name="user_name" placeholder="Name" />
 
           <input className={styles['Form__input-text']} type="text" name="user_email" placeholder="Email Address" />
-
-          <input className={styles['Form__input-text']} type="text" name="subject" placeholder="Subject" />
 
           <textarea className={styles['Form__textarea']} name="message" placeholder="Your message" />
           <input className={styles['Form__button']} type="submit" value="Send Message" />
