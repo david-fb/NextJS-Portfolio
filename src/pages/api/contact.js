@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const info = {
       from: `${data.name} 👨‍💻 `, // sender address
       to: `${config.nmEmail}`, // list of receivers
-      subject: `${data.subject}`, // Subject line
+      subject: `Portfolio message`, // Subject line
       html: `<p> <b>email: </b>${data.email} </p>
              <p> <b>message: </b>${data.message} </p>`, // html body
     };
