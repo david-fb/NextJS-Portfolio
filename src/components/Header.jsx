@@ -1,18 +1,13 @@
-import Image from 'next/image';
-import imgPerson from '@images/person_programming.jpg';
 import styles from '@styles/Header.module.scss';
 
 export default function Header() {
   return (
     <header className={`PageSection ${styles.Header}`} id="Header">
-      <h1>
-        <span className={styles['Header__title-hello']}>Hola, soy David, FullStack Web Developer </span>
-        <br />
-        FullStack JavaScript. En busca del desarrollo profesional
-      </h1>
-      <figure>
-        <Image src={imgPerson} alt="person programming" priority />
-      </figure>
+      <div>
+        <p>Hi, I&apos;m</p>
+        <h1 className={styles['Header__title-name']}>David Basto</h1>
+        <p>Full Stack JavaScript Developer.</p>
+      </div>
     </header>
   );
 }

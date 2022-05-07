@@ -1,4 +1,10 @@
+@import 'vars';
 .Projects {
     height: 100vh;
-    background-color: aquamarine;
+    padding: 150px;
+    
+    &__title{
+        text-transform: uppercase;
+        color: $primary-color;
+    }
 }

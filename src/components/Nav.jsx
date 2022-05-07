@@ -1,6 +1,6 @@
 import styles from '@styles/Nav.module.scss';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const options = {
   root: null,
@@ -9,6 +9,8 @@ const options = {
 };
 
 export default function Nav() {
+  const navRef = useRef(null);
+
   useEffect(() => {
     let target = '.PageSection';
     const links = document.querySelectorAll(`.${styles['Menu__item']}`);
@@ -20,6 +22,11 @@ export default function Nav() {
               link.classList.add(`${styles['Menu__item-active']}`);
             } else {
               link.classList.remove(`${styles['Menu__item-active']}`);
+            }
+            if (entry.target.id === 'Header') {
+              navRef.current.classList.remove(`${styles['Menu-background']}`);
+            } else {
+              navRef.current.classList.add(`${styles['Menu-background']}`);
             }
           });
         }
@@ -33,8 +40,12 @@ export default function Nav() {
   }, []);
 
   return (
-    <nav className={styles.Nav}>
-      <p>DB.</p>
+    <nav className={styles.Nav} ref={navRef}>
+      <Link href="/">
+        <a href="dummy" className={styles['Nav__logo']}>
+          DB.
+        </a>
+      </Link>
       <ul className={styles.Menu}>
         <li className={styles['Menu__item']}>
           <Link href="/">Home</Link>
@@ -49,7 +60,7 @@ export default function Nav() {
           <Link href="#Contact">Contact</Link>
         </li>
       </ul>
-      <button>Descargar CV</button>
+      <button className={styles['Nav__button-download']}>Download CV</button>
     </nav>
   );
 }

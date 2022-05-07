@@ -1,4 +1,12 @@
+@import 'vars';
 .About {
     height: 100vh;
-    background-color: aliceblue;
+    width: 100%;
+    padding: 150px;
+
+    &__title{
+        text-transform: uppercase;
+        color: $primary-color;
+    }
+
 }
