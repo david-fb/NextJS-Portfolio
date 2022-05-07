@@ -46,7 +46,7 @@
         }
     }
     &-background {
-        background-color: #212121;
+        background-color: rgba($color: $surface-color, $alpha: .98);
         transition: all .5s ease-in;
     }
 }
