@@ -1,12 +1,22 @@
 import styles from '@styles/Contact.module.scss';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Footer from '@components/Footer';
 import axios from 'axios';
+import SendMessageLoader from './SendMessageLoader';
 
 export default function Contact() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSendingMessage, setIsSendingMessage] = useState(true);
   const form = useRef();
+  const closeModal = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSendingMessage(true);
+    }, 2000);
+  };
   const sendEmail = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const formData = new FormData(form.current);
     const mail = {
       data: {
@@ -15,9 +25,15 @@ export default function Contact() {
         message: formData.get('message'),
       },
     };
-    const response = await axios.post('/api/contact', mail);
-    if (response.status === 200) {
-      console.log('Email sent');
+    try {
+      const response = await axios.post('/api/contact', mail);
+      if (response.status === 200) {
+        setIsSendingMessage(false);
+        closeModal();
+        form.current.reset();
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
   return (
@@ -31,6 +47,7 @@ export default function Contact() {
 
           <textarea className={styles['Form__textarea']} name="message" placeholder="Your message" />
           <input className={styles['Form__button']} type="submit" value="Send Message" />
+          {isLoading && <SendMessageLoader isSending={isSendingMessage} />}
         </form>
       </div>
       <Footer />
