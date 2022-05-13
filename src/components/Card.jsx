@@ -1,23 +1,21 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import styles from '@styles/Card.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef, useState, useEffect } from 'react';
+import videoIcon from '@assets/icons/video-icon.svg';
+import linkIcon from '@assets/icons/link-icon.svg';
 
-const images = [
-  'https://i.pinimg.com/736x/99/25/60/9925601fec16cfd1c28125fcc4def93d--design-web-type-design.jpg',
-  'https://geekflare.com/wp-content/uploads/2019/04/Whimsical-design.png',
-  'https://www.salixdesigns.com/wp-content/uploads/2021/11/how-to-design-a-website-21-1024x500-1.png',
-];
-
-export default function Card() {
+export default function Card({ project }) {
   const [imgPosition, setImgPosition] = useState(0);
   const imgRef = useRef(null);
   const dotsRef = useRef(null);
 
   const plusSlides = (n) => {
-    if (imgPosition + n > images.length - 1) {
+    if (imgPosition + n > project.images.length - 1) {
       setImgPosition(0);
     } else if (imgPosition + n < 0) {
-      setImgPosition(images.length - 1);
+      setImgPosition(project.images.length - 1);
     } else {
       setImgPosition(imgPosition + n);
     }
@@ -45,9 +43,9 @@ export default function Card() {
   return (
     <div className={styles['Card']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <figure className={styles['Card__image']} ref={imgRef}>
-        <Image src={images[imgPosition]} alt="web" layout="fill" objectFit="cover" />
+        <Image src={project?.images[imgPosition]} alt="web" layout="fill" objectFit="cover" />
         <div className={styles['Card__image__dots']} ref={dotsRef}>
-          {images.map((img, index) => (
+          {project?.images.map((img, index) => (
             <div onClick={() => handleClickDot(index)} onKeyUp={() => handleClickDot(index)} key={`dot-${index}`} role="button" tabIndex={0}></div>
           ))}
         </div>
@@ -58,10 +56,36 @@ export default function Card() {
           &gt;
         </button>
       </figure>
-      <h3>Store Frontend & Backend</h3>
-      <p>Description project, this is the description for the project made with NextJS</p>
-      <h3>Tecnologies</h3>
-      <p>ReactJS, NodeJS, ExpressJS, SCSS, Git</p>
+      <h3 className={styles['Card__title']}>{project?.title}</h3>
+      <p className={styles['Card__projectArea']}>{project.area.join(' & ')}</p>
+      <p className={styles['Card__text']}>{project?.description}</p>
+      <ul className={styles['Card__technologies']}>
+        {project?.technologies.map((item, index) => (
+          <li key={`${project.name}-technology-${index}`} className={styles['Card__technologies__item']}>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <div className={styles['Card__links']}>
+        <Link href={project?.liveWeb}>
+          <a target="_blank" className={styles['Card__links__item']}>
+            <figure className={styles['Card__links__item-image']}>
+              <Image src={linkIcon} layout="fill" alt="Video" />
+            </figure>
+            Live
+          </a>
+        </Link>
+        {project?.youtube && (
+          <Link href={project?.youtube}>
+            <a target="_blank" className={styles['Card__links__item']}>
+              <figure className={styles['Card__links__item-image']}>
+                <Image src={videoIcon} layout="fill" alt="Video" />
+              </figure>
+              Video
+            </a>
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

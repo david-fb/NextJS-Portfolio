@@ -2,7 +2,8 @@
     width: 100%;
     height: fit-content;
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 600px));
-    gap: 40px;
+    grid-template-columns: repeat(2, minmax(300px, 500px));
+    grid-auto-rows: auto;
+    gap: 20px;
     justify-content: center;
 }

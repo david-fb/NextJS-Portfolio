@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   images: {
-    domains: ['i.pinimg.com', 'geekflare.com', 'www.salixdesigns.com'],
+    domains: ['firebasestorage.googleapis.com'],
   },
 };
 

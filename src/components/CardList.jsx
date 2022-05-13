@@ -1,13 +1,12 @@
 import Card from '@components/Card';
 import styles from '@styles/CardList.module.scss';
 
-export default function CardList() {
+export default function CardList({ projects }) {
   return (
     <div className={styles['CardList']}>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {projects?.map((project) => (
+        <Card key={`Project-${project.id}`} project={project} />
+      ))}
     </div>
   );
 }
