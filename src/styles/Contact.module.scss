@@ -4,6 +4,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 100px 0px;
   background-color: $bg-color;
 
   &__title {
@@ -18,7 +20,9 @@
   &__form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
+    width: 90%;
 
     .Form__button {
       width: fit-content;
@@ -30,7 +34,7 @@
 
     .Form__input-text,
     .Form__textarea {
-      width: 80ch;
+      width: 100%;
       padding: 15px 20px;
       margin-bottom: 15px;
       background-color: $surface-color;
@@ -50,14 +54,26 @@
 
   &__content {
     width: 100%;
+    max-width: 1200px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 100px 0;
+    flex: 1;
 
     img {
       width: 400px;
+    }
+  }
+}
+
+@media (max-width:460px) {
+  .Contact__title {
+    font-size: 40px;
+  }
+  .Contact__form {
+    .Form__button{
+        padding: 8px 20px;
+        font-size: 15px;
     }
   }
 }
