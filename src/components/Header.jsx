@@ -95,7 +95,7 @@ export default function Header() {
         </ul>
         <p>Hi, I&apos;m</p>
         <h1 className={styles['Header__content__title-name']}>David Basto</h1>
-        <h2 className={styles['Header__content__title-description']}>Full Stack Web Developer.</h2>
+        <h2 className={styles['Header__content__title-description']}>Web Developer</h2>
         <Link href="#Contact">
           <a className={`primary-button ${styles['Header__content__talk']}`}>Let&apos;s Talk</a>
         </Link>

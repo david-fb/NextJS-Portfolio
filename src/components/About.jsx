@@ -25,8 +25,8 @@ export default function About() {
           </li>
           <li className={styles['About__content__container__text']}>
             <p>
-              I am a Full-Stack Web Developer; I am passionate about new technologies, I like learning new things and always thinking about improving my skills. I adapt quickly to changes; I&apos;m a
-              team player, friendly, and always willing to lend a helping hand. I would like to find a job where I can grow both personally and professionally
+              I am a Web Developer; I am passionate about new technologies, I like learning new things and always thinking about improving my skills. I adapt quickly to changes; I&apos;m a team
+              player, friendly, and always willing to lend a helping hand. I would like to find a job where I can grow both personally and professionally
             </p>
           </li>
           <li className={styles['About__content__container__skills']}>
