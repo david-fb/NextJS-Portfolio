@@ -9,6 +9,7 @@ import VueJSIcon from '@assets/icons/vuejs.svg';
 import GitIcon from '@assets/icons/git.svg';
 import SassIcon from '@assets/icons/sass.svg';
 import ExpressJSIcon from '@assets/icons/expressjs.svg';
+import hexagonImage from '@images/hexagon.svg';
 import styles from '@styles/About.module.scss';
 
 export default function About() {
@@ -17,11 +18,10 @@ export default function About() {
       <h2 className={styles['About__title']}>Who am I?</h2>
       <div className={styles['About__content']}>
         <ul className={styles['About__content__container']}>
-          <li>
-            <div className={styles['hexagon-container']}>
-              <div className={styles['hexagon']}></div>
-              <div className={`${styles['hexagon']} ${styles['hexagon-back']}`}></div>
-            </div>
+          <li className={styles['About__content__container__hexagon']}>
+            <figure>
+              <Image src={hexagonImage} layout="fill" alt="David basto" objectFit="contain" />
+            </figure>
           </li>
           <li className={styles['About__content__container__text']}>
             <p>
