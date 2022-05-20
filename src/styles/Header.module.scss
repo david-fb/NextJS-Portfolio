@@ -1,6 +1,6 @@
 @import 'vars';
 .Header {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   align-self: center;
   display: flex;
@@ -12,13 +12,84 @@
   position: relative;
   overflow: hidden;
 
-  &__title-name {
-    font-size: 50px;
-    color: $primary-color;
-  }
   &__content {
     z-index: 1;
+    width: 80%;
+    flex: 1;
     max-width: 1200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__title-name {
+      font-size: 80px;
+      color: $primary-color;
+      margin-top: -15px;
+    }
+    &__title-description {
+      font-size: 30px;
+      margin-top: -25px;
+    }
+
+    &__talk {
+      padding: 5px 15px;
+      margin-top: 40px;
+      font-size: 16px;
+    }
+    
+    &__social {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      position: absolute;
+      left: 0;
+      align-items: center;
+
+      &-item {
+        position: relative;
+        width: 30px;
+        aspect-ratio: 1 / 1;
+        cursor: pointer;
+      }
+      &::after,
+      &::before {
+        content: '';
+        width: 2px;
+        height: 60px;
+        background-color: #434343;
+      }
+    }
+
+    &__scroll {
+      font-size: 17px;
+      display: flex;
+      gap: 3px;
+      position: absolute;
+      bottom: 40px;
+      figure {
+        position: relative;
+        width: 30px;
+        aspect-ratio: 16 / 9;
+      }
+      &-letter {
+        position: relative;
+        display: inline-block;
+        font-size: 16px;
+        color: #fff;
+        text-transform: uppercase;
+        animation: flip 3.5s infinite;
+        animation-delay: calc(.3s * var(--i));
+      }
+    }
+  }
+}
+@keyframes flip {
+  0%,
+  80% {
+    transform: rotateX(360deg);
   }
 }
 
@@ -35,10 +106,10 @@
     opacity: 0;
   }
   10% {
-    opacity: .5;
+    opacity: 0.5;
   }
   90% {
-    opacity: .5;
+    opacity: 0.5;
   }
   100% {
     transform: scale(1) translateY(-500%) rotate(360deg);

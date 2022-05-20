@@ -46,7 +46,9 @@ export default function Contact() {
           <input className={styles['Form__input-text']} type="email" name="user_email" placeholder="Email Address" />
 
           <textarea className={styles['Form__textarea']} name="message" placeholder="Your message" />
-          <input className={styles['Form__button']} type="submit" value="Send Message" />
+          <button className={`primary-button ${styles['Form__button']}`} type="submit">
+            Send Message
+          </button>
           {isLoading && <SendMessageLoader isSending={isSendingMessage} />}
         </form>
       </div>

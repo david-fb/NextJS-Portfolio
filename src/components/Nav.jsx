@@ -60,7 +60,7 @@ export default function Nav() {
           <Link href="#Contact">Contact</Link>
         </li>
       </ul>
-      <button className={styles['Nav__button-download']}>Download CV</button>
+      <button className={`primary-button ${styles['Nav__button-download']}`}>Download CV</button>
     </nav>
   );
 }
