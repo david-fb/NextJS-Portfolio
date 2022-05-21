@@ -29,22 +29,31 @@
     justify-content: space-between;
     padding: .5em 0;
     margin-bottom: -1px;
+    color: $on-surface-color;
 
     &__item{
         margin-left: .5em;
         a {
             text-decoration: none;
             padding: 0 1em;
-            color: $on-surface-color;
             text-transform: uppercase;
             font-size: 16px;
         }
-        &-active a, a:hover{
+        &-active a{
             color: $primary-color;
         }
     }
     &-background {
         background-color: rgba($color: $surface-color, $alpha: .98);
         transition: all .5s ease-in;
+    }
+}
+@media (hover: hover) and (pointer: fine) {
+    .Menu__item a:hover { color: $primary-color; }
+  }
+
+@media (max-width:860px) {
+    .Menu, .Nav__button-download{
+        display: none;
     }
 }

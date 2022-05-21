@@ -1,19 +1,22 @@
-import styles from '@styles/Nav.module.scss';
-import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import MenuMobileButton from '@components/MenuMobileButton';
+import styles from '@styles/Nav.module.scss';
 
 const options = {
   root: null,
-  threshold: 0.7,
-  margin: '50px 0px',
+  threshold: 0.25,
+  margin: '0px 0px',
 };
 
 export default function Nav() {
   const navRef = useRef(null);
+  const menuRef = useRef(null);
+  const menuMobileRef = useRef(null);
 
   useEffect(() => {
     let target = '.PageSection';
-    const links = document.querySelectorAll(`.${styles['Menu__item']}`);
+    const links = [...menuRef.current.children, ...menuMobileRef.current.children];
     const callback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -37,7 +40,7 @@ export default function Nav() {
       observer.observe(item);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [menuRef, menuMobileRef]);
 
   return (
     <nav className={styles.Nav} ref={navRef}>
@@ -46,7 +49,7 @@ export default function Nav() {
           DB.
         </a>
       </Link>
-      <ul className={styles.Menu}>
+      <ul className={styles.Menu} ref={menuRef}>
         <li className={styles['Menu__item']}>
           <Link href="/">Home</Link>
         </li>
@@ -61,6 +64,7 @@ export default function Nav() {
         </li>
       </ul>
       <button className={`primary-button ${styles['Nav__button-download']}`}>Download CV</button>
+      <MenuMobileButton menuMobileRef={menuMobileRef} />
     </nav>
   );
 }
