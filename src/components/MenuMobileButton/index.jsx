@@ -11,16 +11,16 @@ export default function MenuMobileButton({ menuMobileRef }) {
         <span></span>
       </button>
       <ul ref={menuMobileRef} className={`${styles['MenuMobile']} ${isOpen ? styles['showMenu'] : ''}`}>
-        <li className={styles['Menu__item']}>
+        <li className={styles['MenuMobile__item']}>
           <Link href="/">Home</Link>
         </li>
-        <li className={styles['Menu__item']}>
+        <li className={styles['MenuMobile__item']}>
           <Link href="#Projects">Projects</Link>
         </li>
-        <li className={styles['Menu__item']}>
+        <li className={styles['MenuMobile__item']}>
           <Link href="#About">About Me</Link>
         </li>
-        <li className={styles['Menu__item']}>
+        <li className={styles['MenuMobile__item']}>
           <Link href="#Contact">Contact</Link>
         </li>
       </ul>

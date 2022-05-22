@@ -1,7 +1,9 @@
+@import '@styles/vars';
 .MenuMobileButton {
   display: none;
   background: none;
   border: none;
+  cursor: pointer;
   span {
     display: block;
     width: 30px;
@@ -9,7 +11,7 @@
     margin-bottom: 5px;
     position: relative;
 
-    background: #cdcdcd;
+    background: $primary-color;
     border-radius: 3px;
 
     z-index: 1;
@@ -46,16 +48,21 @@
     position: absolute;
     flex-direction: column;
     align-items: flex-end;
-    gap: 8px;
+    gap: 10px;
     height: 100vh;
     padding: 60px 0px;
-    padding-right: 90px;
+    padding-right: 35px;
     background: rgba(#434343, $alpha: .48);
     backdrop-filter: blur(15px);
     width: 300px;
     right: 0;
     top: 0;
     color: #fff;
+
+    &__item {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
 }
 .showMenu {
     display: none;

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import MenuMobileButton from '@components/MenuMobileButton';
+import ResumeButtonDownload from './ResumeButtonDownload';
 import styles from '@styles/Nav.module.scss';
 
 const options = {
@@ -62,8 +63,10 @@ export default function Nav() {
         <li className={styles['Menu__item']}>
           <Link href="#Contact">Contact</Link>
         </li>
+        <li className={styles['Menu__item-download']}>
+          <ResumeButtonDownload />
+        </li>
       </ul>
-      <button className={`primary-button ${styles['Nav__button-download']}`}>Download CV</button>
       <MenuMobileButton menuMobileRef={menuMobileRef} />
     </nav>
   );

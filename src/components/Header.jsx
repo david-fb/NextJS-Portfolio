@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ResumeButtonDownload from './ResumeButtonDownload';
 import githubIcon from '@assets/icons/github-brands.svg';
 import twitterIcon from '@assets/icons/twitter-brands.svg';
 import linkedinIcon from '@assets/icons/linkedin-brands.svg';
@@ -96,9 +97,16 @@ export default function Header() {
         <p>Hi, I&apos;m</p>
         <h1 className={styles['Header__content__title-name']}>David Basto</h1>
         <h2 className={styles['Header__content__title-description']}>Web Developer</h2>
-        <Link href="#Contact">
-          <a className={`primary-button ${styles['Header__content__talk']}`}>Let&apos;s Talk</a>
-        </Link>
+        <ul className={styles['Header__content__links']}>
+          <li className={styles['Header__content__links-resume']}>
+            <ResumeButtonDownload />
+          </li>
+          <li>
+            <Link href="#Contact">
+              <a className={`primary-button ${styles['Header__content__links-talk']}`}>Let&apos;s Talk</a>
+            </Link>
+          </li>
+        </ul>
         <div className={styles['Header__content__scroll']}>
           {/* Scroll down */}
           <span className={styles['Header__content__scroll-letter']} style={{ '--i': 1 }}>
