@@ -9,7 +9,7 @@ import VueJSIcon from '@assets/icons/vuejs.svg';
 import GitIcon from '@assets/icons/git.svg';
 import SassIcon from '@assets/icons/sass.svg';
 import ExpressJSIcon from '@assets/icons/expressjs.svg';
-import hexagonImage from '@images/hexagon.svg';
+import hexagonImage from '@images/hexagon.png';
 import styles from '@styles/About.module.scss';
 
 export default function About() {

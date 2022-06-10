@@ -12,7 +12,7 @@ export default function ResumeButtonDownload() {
   };
   return (
     <button onClick={downloadFile} className={`primary-button ${styles['Button-download']}`}>
-      Download Resume
+      Get Resume
     </button>
   );
 }
