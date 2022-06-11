@@ -1,102 +1,94 @@
 @import 'vars';
-.About {
+.container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 70px 20px;
 
-  &__title {
+  & .title {
     text-transform: uppercase;
     color: $primary-color;
     margin-bottom: 15px;
     text-align: center;
     font-size: 35px;
   }
-  &__content {
-    display: flex;
-    max-width: 1200px;
-    flex: 1;
-    color: $on-surface-color;
 
-    &__container {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      justify-items: center;
-      row-gap: 15px;
-      
-      &__text {
-        font-size: 16px;
-        margin: auto 0;
-        p {
-          max-width: 50ch;
-        }
+  & .content {
+    list-style: none;
+    max-width: 1200px;
+    color: $on-surface-color;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    row-gap: 15px;
+
+    & .text {
+      font-size: 16px;
+      margin: auto 0;
+      p {
+        max-width: 50ch;
       }
-      &__hexagon {
+    }
+    & .hexagon {
+      width: 100%;
+      min-width: 250px;
+      max-width: 350px;
+      aspect-ratio: 1 / 1;
+      figure {
+        position: relative;
         width: 100%;
-        max-width: 350px;
-        aspect-ratio: 1 / 1;
-        figure {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          filter: grayscale(100%);
-        }
-        figure:hover {
-          filter: grayscale(0%);
-        }
+        height: 100%;
+        filter: grayscale(100%);
       }
-      &__subtitle {
+      figure:hover {
+        filter: grayscale(0%);
+      }
+    }
+    & .technologies {
+      grid-column: 1 / span 2;
+
+      & .technologiesTitle {
         color: $primary-color;
         font-size: 25px;
         text-align: center;
         margin-bottom: 16px;
       }
-      &__image {
-        position: relative;
-        width: 50px;
-        height: 50px;
-        filter: grayscale(100%);
-      }
-      &__skills {
-        grid-column: 1 / span 2;
 
-          &List {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            max-width: 480px;
-            justify-content: center;
-    
-            &-item {
-              width: 100px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              filter: grayscale(100%);
-              figure {
-                position: relative;
-                width: 50px;
-                height: 50px;
-              }
-              &:hover {
-                filter: grayscale(0%);
-              }
-            }
+      & .skills {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 480px;
+        justify-content: center;
+
+        & .skill {
+          width: 100px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          filter: grayscale(100%);
+          figure {
+            position: relative;
+            width: 50px;
+            height: 50px;
           }
+          &:hover {
+            filter: grayscale(0%);
+          }
+        }
       }
     }
   }
 }
 
-@media (max-width:750px) {
-  .About__content__container {
-    grid-template-columns: 1fr;
-
-    &__skills{
-      grid-column: 1 / 1;
+@media (max-width: 750px) {
+  .container {
+    & .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
