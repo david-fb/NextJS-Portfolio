@@ -37,16 +37,16 @@ export default function Contact() {
     }
   };
   return (
-    <section className={`PageSection ${styles.Contact}`} id="Contact">
-      <div className={styles['Contact__content']}>
-        <h2 className={styles['Contact__title']}>Get in touch!</h2>
-        <form ref={form} onSubmit={sendEmail} className={styles['Contact__form']}>
-          <input className={styles['Form__input-text']} type="text" name="user_name" placeholder="Name" />
+    <section className={`PageSection ${styles.container}`} id="Contact">
+      <div className={styles.content}>
+        <h2 className={styles.title}>Get in touch!</h2>
+        <form ref={form} onSubmit={sendEmail} className={styles.form}>
+          <input className={styles.inputText} type="text" name="user_name" placeholder="Name" />
 
-          <input className={styles['Form__input-text']} type="email" name="user_email" placeholder="Email Address" />
+          <input className={styles.inputText} type="email" name="user_email" placeholder="Email Address" />
 
-          <textarea className={styles['Form__textarea']} name="message" placeholder="Your message" />
-          <button className={`primary-button ${styles['Form__button']}`} type="submit">
+          <textarea className={styles.textArea} name="message" placeholder="Your message" />
+          <button className={`primary-button ${styles.button}`} type="submit">
             Send Message
           </button>
           {isLoading && <SendMessageLoader isSending={isSendingMessage} />}
