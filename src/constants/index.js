@@ -8,6 +8,9 @@ import VueJSIcon from '@assets/icons/vuejs.svg';
 import GitIcon from '@assets/icons/git.svg';
 import SassIcon from '@assets/icons/sass.svg';
 import ExpressJSIcon from '@assets/icons/expressjs.svg';
+import githubIcon from '@assets/icons/github-brands.svg';
+import twitterIcon from '@assets/icons/twitter-brands.svg';
+import linkedinIcon from '@assets/icons/linkedin-brands.svg';
 
 const LINKS = [
   {
@@ -76,4 +79,22 @@ const ABOUT_ME = {
   ],
 };
 
-module.exports = { LINKS, ABOUT_ME };
+const SOCIAL_LINKS = [
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/DavidB_M1',
+    icon: twitterIcon,
+  },
+  {
+    name: 'Github',
+    href: 'https://github.com/david-fb',
+    icon: githubIcon,
+  },
+  {
+    name: 'Linkedin',
+    href: 'https://www.linkedin.com/in/david-basto/',
+    icon: linkedinIcon,
+  },
+];
+
+module.exports = { LINKS, ABOUT_ME, SOCIAL_LINKS };

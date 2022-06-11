@@ -1,6 +1,6 @@
 @import 'vars';
 
-.Footer {
+.container {
     padding: .5em;
     font-size: 1.1em;
     text-align: center;
@@ -11,33 +11,32 @@
     flex-wrap: wrap;
     height: 50px;
     width: 100%;
-
-    &-mail {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        background: none;
-        border: none;
-        color: $on-surface-color;
-        height: 100%;
-        width: 250px;
-        font-size: 16px;
-
-        &_image{
-            position: relative;
-            height: 100%;
-            aspect-ratio: 1 / 1;
-        }
-    }
-    &-social {
-        display: flex;
-        width: 150px;
-        height: 100%;
-        justify-content: space-around;
-        &-item {
-            position: relative;
-            height: 100%;
-            aspect-ratio: 1 / 1;
-        }
-    }
+}
+.mailButton {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background: none;
+    border: none;
+    color: $on-surface-color;
+    height: 100%;
+    width: 250px;
+    font-size: 16px;
+}
+.mailImage{
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+.social {
+    list-style: none;
+    display: flex;
+    width: 150px;
+    height: 100%;
+    justify-content: space-around;
+}
+.socialItem {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1 / 1;
 }
