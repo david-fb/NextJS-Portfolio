@@ -1,5 +1,5 @@
 @import 'vars';
-.Card {
+.container {
   display: flex;
   width: 100%;
   height: 100%;
@@ -8,107 +8,50 @@
   color: $on-surface-color;
   flex-direction: column;
 
-  &__image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    // height: 200px;
-    background-color: $on-surface-color;
-
-    span {
-      filter: grayscale(100%);
-    }
-
-    &__button-left,
-    &__button-right {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: $primary-color;
-      border: none;
-      cursor: pointer;
-      width: 40px;
-      aspect-ratio: 1 / 1;
-      font-size: 25px;
-      font-weight: bold;
-      box-shadow: 0px 0px 5px rgba($color: $bg-color, $alpha: 0.28);
-    }
-    &__button-left {
-      left: 0;
-    }
-    &__button-right {
-      right: 0;
-    }
-    &__dots {
-      position: absolute;
-      cursor: pointer;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 5px;
-
-      div {
-        width: 13px;
-        aspect-ratio: 1 / 1;
-        background-color: rgba($color: $surface-color, $alpha: 0.8);
-        border-radius: 50%;
-      }
-      div:hover,
-      .active {
-        background-color: $bg-color;
-      }
-    }
-  }
-
-  &__title {
+  & .title {
     font-size: 25px;
     color: $primary-color;
   }
-  &__projectArea {
+  & .subtitle {
     font-size: 13px;
     font-weight: 600;
     margin-top: -9px;
   }
 
-  &__text {
+  & .description {
     font-size: 16px;
     line-height: 1.1;
   }
 
-  &__technologies {
+  & .technologies {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 10px;
 
-    &__item {
+    & .item {
       background-color: $surface-02p-color;
       padding: 0 5px;
       font-size: 13px;
     }
   }
 
-  &__links {
+  & .links {
     display: flex;
     gap: 15px;
     margin-top: auto;
     padding: 8px;
-    &__item {
+    & .link {
       height: 25px;
       display: flex;
       gap: 3px;
 
-      &-image {
+      & .linkImage {
         position: relative;
         height: 100%;
         aspect-ratio: 1 / 1;
       }
     }
   }
-}
-
-.gray {
-  filter: grayscale(100%);
 }
