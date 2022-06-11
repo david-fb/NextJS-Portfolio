@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import MenuMobileButton from '@components/MenuMobileButton';
+import MenuMobile from '@components/MenuMobile';
 import ResumeButtonDownload from './ResumeButtonDownload';
 import styles from '@styles/Nav.module.scss';
 
@@ -67,7 +67,7 @@ export default function Nav() {
           <ResumeButtonDownload />
         </li>
       </ul>
-      <MenuMobileButton menuMobileRef={menuMobileRef} />
+      <MenuMobile menuMobileRef={menuMobileRef} />
     </nav>
   );
 }

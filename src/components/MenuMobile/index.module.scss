@@ -1,5 +1,5 @@
 @import '@styles/vars';
-.MenuMobileButton {
+.closeButton {
   display: none;
   background: none;
   border: none;
@@ -42,7 +42,7 @@
   }
 }
 
-.MenuMobile {
+.content {
     display: none;
     list-style: none;
     position: absolute;
@@ -60,7 +60,7 @@
     color: $on-surface-color;
     animation: entry .5s ease;
 
-    &__item {
+    & .item {
       text-transform: uppercase;
       font-weight: bold;
       font-size: 30px;
@@ -79,11 +79,11 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .MenuMobile__item a:hover { color: $primary-color; }
+  .item a:hover { color: $primary-color; }
 }
 
 @media (max-width:860px) {
-    .MenuMobileButton {
+    .closeButton {
         display: block;
     }
     .showMenu {
@@ -91,7 +91,7 @@
     }
 }
 @media (max-width:460px) {
-    .MenuMobile {
+    .content {
        width: 100%;
     }
 }
