@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import MenuMobile from '@components/MenuMobile';
 import ResumeButtonDownload from './ResumeButtonDownload';
+import { LINKS } from '@constants/index';
 import styles from '@styles/Nav.module.scss';
 
 const options = {
@@ -23,14 +24,14 @@ export default function Nav() {
         if (entry.isIntersecting) {
           links.forEach((link) => {
             if (link.firstChild.textContent.includes(entry.target.id)) {
-              link.classList.add(`${styles['Menu__item-active']}`);
+              link.classList.add(`${styles['menuItem-active']}`);
             } else {
-              link.classList.remove(`${styles['Menu__item-active']}`);
+              link.classList.remove(`${styles['menuItem-active']}`);
             }
             if (entry.target.id === 'Header') {
-              navRef.current.classList.remove(`${styles['Menu-background']}`);
+              navRef.current.classList.remove(`${styles['menu-background']}`);
             } else {
-              navRef.current.classList.add(`${styles['Menu-background']}`);
+              navRef.current.classList.add(`${styles['menu-background']}`);
             }
           });
         }
@@ -44,30 +45,25 @@ export default function Nav() {
   }, [menuRef, menuMobileRef]);
 
   return (
-    <nav className={styles.Nav} ref={navRef}>
-      <Link href="/">
-        <a href="dummy" className={styles['Nav__logo']}>
-          DB.
-        </a>
-      </Link>
-      <ul className={styles.Menu} ref={menuRef}>
-        <li className={styles['Menu__item']}>
-          <Link href="/">Home</Link>
-        </li>
-        <li className={styles['Menu__item']}>
-          <Link href="#Projects">Projects</Link>
-        </li>
-        <li className={styles['Menu__item']}>
-          <Link href="#About">About Me</Link>
-        </li>
-        <li className={styles['Menu__item']}>
-          <Link href="#Contact">Contact</Link>
-        </li>
-        <li className={styles['Menu__item-download']}>
-          <ResumeButtonDownload />
-        </li>
-      </ul>
-      <MenuMobile menuMobileRef={menuMobileRef} />
+    <nav className={styles.container} ref={navRef}>
+      <div className={styles.wrapper}>
+        <Link href="/">
+          <a href="dummy" className={styles.logo}>
+            DB.
+          </a>
+        </Link>
+        <ul className={styles.menu} ref={menuRef}>
+          {LINKS.map((link, index) => (
+            <li key={`link-item-${index}`} className={styles.menuItem}>
+              <Link href={link.href}>{link.name}</Link>
+            </li>
+          ))}
+          <li className={styles.download}>
+            <ResumeButtonDownload />
+          </li>
+        </ul>
+        <MenuMobile menuMobileRef={menuMobileRef} />
+      </div>
     </nav>
   );
 }

@@ -1,58 +1,62 @@
-@import "vars";
-.Nav{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    height: 40px;
-    padding: 30px 70px;
-    position: fixed;
-    z-index: 999;
-    background-color: rgba($color: $bg-color, $alpha: .98);
-    transition: all .5s ease-out;
-
-    &__logo {
-        color: $primary-color;
-        font-size: 30px;
-        font-weight: 600;
-    }
+@import 'vars';
+.container {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: rgba($color: $bg-color, $alpha: 0.98);
+  transition: all 0.5s ease-out;
 }
-.Menu{
-    list-style: none;
-    display: flex;
-    width: fit-content;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5em 0;
-    margin-bottom: -1px;
-    color: $on-surface-color;
-
-    &__item{
-        margin-left: .5em;
-        a {
-            text-decoration: none;
-            padding: 0 1em;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        &-active a{
-            color: $primary-color;
-        }
-    }
-    &-background {
-        background-color: rgba($color: $surface-color, $alpha: .98);
-        transition: all .5s ease-in;
-    }
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0px;
+  margin: auto;
 }
-@media (hover: hover) and (pointer: fine) {
-    .Menu__item a:hover { color: $primary-color; }
+.logo {
+  color: $primary-color;
+  font-size: 30px;
+  font-weight: 600;
+}
+.menu {
+  list-style: none;
+  display: flex;
+  width: fit-content;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+  margin-bottom: -1px;
+  color: $on-surface-color;
+  &-background {
+    background-color: rgba($color: $surface-color, $alpha: 0.98);
+    transition: all 0.5s ease-in;
   }
+}
+.menuItem {
+  margin-left: 0.5em;
+  a {
+    text-decoration: none;
+    padding: 0 1em;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  &-active a {
+    color: $primary-color;
+  }
+}
 
-@media (max-width:860px) {
-    .Menu, .Menu__item-download{
-        display: none;
-    }
-    .Nav {
-        padding: 30px;
-    }
+@media (hover: hover) and (pointer: fine) {
+  .menuItem a:hover {
+    color: $primary-color;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu,
+  .download {
+    display: none;
+  }
 }
