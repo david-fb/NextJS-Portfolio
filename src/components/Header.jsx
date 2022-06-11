@@ -1,11 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ResumeButtonDownload from './ResumeButtonDownload';
-import githubIcon from '@assets/icons/github-brands.svg';
-import twitterIcon from '@assets/icons/twitter-brands.svg';
-import linkedinIcon from '@assets/icons/linkedin-brands.svg';
 import JSIcon from '@assets/icons/js.svg';
 import NextJSIcon from '@assets/icons/nextjs.svg';
 import ReactJsIcon from '@assets/icons/reactjs.svg';
@@ -15,7 +11,8 @@ import NodeJSIcon from '@assets/icons/nodejs.svg';
 import GitIcon from '@assets/icons/git.svg';
 import SassIcon from '@assets/icons/sass.svg';
 import ExpressJSIcon from '@assets/icons/expressjs.svg';
-import ArrowDownIcon from '@assets/icons/arrow-down.svg';
+import { SOCIAL_LINKS } from '@constants/index';
+import ScrollDown from '@components/ScrollDown';
 import styles from '@styles/Header.module.scss';
 
 const images = [JSIcon.src, NextJSIcon.src, ReactJsIcon.src, Html5Icon.src, Css3Icon.src, NodeJSIcon.src, GitIcon.src, SassIcon.src, ExpressJSIcon.src];
@@ -69,80 +66,35 @@ export default function Header() {
   }, [headerRef]);
 
   return (
-    <header ref={headerRef} className={`PageSection ${styles.Header}`} id="Header">
-      <div className={styles['Header__content']}>
-        <ul className={styles['Header__content__social']}>
-          <li className={styles['Header__content__social-item']}>
-            <Link href={'https://github.com/david-fb'} passHref>
-              <a target="_blank" rel="noreferrer">
-                <Image src={githubIcon} layout="fill" alt="Github" />
-              </a>
-            </Link>
-          </li>
-          <li className={styles['Header__content__social-item']}>
-            <Link href={'https://twitter.com/DavidB_M1'} passHref>
-              <a target="_blank" rel="noreferrer">
-                <Image src={twitterIcon} layout="fill" alt="Twitter" />
-              </a>
-            </Link>
-          </li>
-          <li className={styles['Header__content__social-item']}>
-            <Link href={'https://www.linkedin.com/in/david-basto/'} passHref>
-              <a target="_blank" rel="noreferrer">
-                <Image src={linkedinIcon} layout="fill" alt="Linkedin" />
-              </a>
-            </Link>
-          </li>
+    <header ref={headerRef} className={`PageSection ${styles.container}`} id="Header">
+      <div className={styles.content}>
+        <ul className={styles.social}>
+          {SOCIAL_LINKS.map((link, index) => (
+            <li key={`social-link-${index}`} className={styles.socialItem}>
+              <Link href={link.href}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <Image src={link.icon} alt={link.name} layout="fill" />
+                </a>
+              </Link>
+            </li>
+          ))}
         </ul>
         <p>Hi, I&apos;m</p>
-        <h1 className={styles['Header__content__title-name']}>David Basto</h1>
-        <h2 className={styles['Header__content__title-description']}>Web Developer</h2>
-        <ul className={styles['Header__content__links']}>
-          <li className={styles['Header__content__links-resume']}>
+        <h1 className={styles.title}>David Basto</h1>
+        <h2 className={styles.subtitle}>Web Developer</h2>
+        <ul className={styles.links}>
+          <li className={styles.resume}>
             <ResumeButtonDownload />
           </li>
           <li>
             <Link href="#Contact">
-              <a className={`primary-button ${styles['Header__content__links-talk']}`}>Let&apos;s Talk</a>
+              <a href="#Contact" className={`primary-button ${styles.talk}`}>
+                Let&apos;s Talk
+              </a>
             </Link>
           </li>
         </ul>
-        <div className={styles['Header__content__scroll']}>
-          {/* Scroll down */}
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 1 }}>
-            S
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 2 }}>
-            c
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 3 }}>
-            r
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 4 }}>
-            o
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 5 }}>
-            l
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 6 }}>
-            l
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 7 }}>
-            D
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 8 }}>
-            O
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 9 }}>
-            W
-          </span>
-          <span className={styles['Header__content__scroll-letter']} style={{ '--i': 10 }}>
-            N
-          </span>
-          <figure className={styles['Header__content__scroll-letter']} style={{ '--i': 11 }}>
-            <Image src={ArrowDownIcon} layout="fill" alt="" />
-          </figure>
-        </div>
+        <ScrollDown />
       </div>
     </header>
   );
