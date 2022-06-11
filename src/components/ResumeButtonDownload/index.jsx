@@ -11,7 +11,7 @@ export default function ResumeButtonDownload() {
     document.body.removeChild(element);
   };
   return (
-    <button onClick={downloadFile} className={`primary-button ${styles['Button-download']}`}>
+    <button onClick={downloadFile} className={`primary-button ${styles.container}`}>
       Get Resume
     </button>
   );
