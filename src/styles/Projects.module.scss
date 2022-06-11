@@ -1,16 +1,15 @@
 @import 'vars';
-.Projects {
+.container {
     min-height: 100vh;
     padding: 70px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    &__title{
-        text-transform: uppercase;
-        color: $primary-color;
-        margin-bottom: 15px;
-        text-align: center;
-        font-size: 35px;
-    }
+}
+.title{
+    text-transform: uppercase;
+    color: $primary-color;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 35px;
 }
