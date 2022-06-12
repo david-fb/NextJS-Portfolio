@@ -30,16 +30,16 @@ export default function Card({ project }) {
       </ul>
       <div className={styles.links}>
         <Link href={project?.liveWeb}>
-          <a href="web" target="_blank" className={styles.link}>
+          <a href={project?.liveWeb} target="_blank" rel="noopener noreferrer" className={styles.link}>
             <figure className={styles.linkImage}>
-              <Image src={linkIcon} layout="fill" alt="Web" />
+              <Image src={linkIcon} layout="fill" alt={`Web ${project.title}`} />
             </figure>
             Live
           </a>
         </Link>
         {project?.youtube && (
           <Link href={project?.youtube}>
-            <a href="video" target="_blank" className={styles.link}>
+            <a href={project?.youtube} target="_blank" rel="noopener noreferrer" className={styles.link}>
               <figure className={styles.linkImage}>
                 <Image src={videoIcon} layout="fill" alt="Video" />
               </figure>
