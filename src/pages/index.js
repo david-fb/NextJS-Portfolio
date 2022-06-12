@@ -10,8 +10,6 @@ export default function Home() {
     <>
       <Head>
         <title>David Basto</title>
-        <meta name="description" content="David Basto web developer" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <Header />
