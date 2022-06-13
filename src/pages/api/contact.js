@@ -5,11 +5,12 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { data } = req.body;
     const info = {
-      from: `${data.name} 👨‍💻 `, // sender address
+      from: `👨‍💻 `, // sender address
       to: `${config.nmEmail}`, // list of receivers
       subject: `Portfolio message`, // Subject line
-      html: `<p> <b>email: </b>${data.email} </p>
-             <p> <b>message: </b>${data.message} </p>`, // html body
+      html: `<p> <b>name: </b>${data.name} </p>
+            <p> <b>email: </b>${data.email} </p>
+            <p> <b>message: </b>${data.message} </p>`, // html body
     };
     const rta = await sendMail(info);
     res.status(200).json(rta);
