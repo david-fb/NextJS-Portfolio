@@ -28,8 +28,10 @@ const Slider = forwardRef(({ images }, ref) => {
     setImgPosition(index);
   };
   return (
-    <figure className={styles.container} ref={ref}>
-      <Image src={images[imgPosition]} alt="web" layout="fill" objectFit="cover" />
+    <div className={styles.container} ref={ref}>
+      <figure className={`${styles.image} gray`}>
+        <Image src={images[imgPosition]} alt="web" layout="fill" objectFit="cover" />
+      </figure>
       <div className={styles.dots} ref={dotsRef}>
         {images.map((img, index) => (
           <div onClick={() => handleClickDot(index)} onKeyUp={() => handleClickDot(index)} key={`dot-${index}`} role="button" tabIndex={0}></div>
@@ -41,7 +43,7 @@ const Slider = forwardRef(({ images }, ref) => {
       <button className={styles.right} onClick={() => plusSlides(1)}>
         &gt;
       </button>
-    </figure>
+    </div>
   );
 });
 Slider.displayName = 'Slider';

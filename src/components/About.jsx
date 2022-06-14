@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import hexagonImage from '@images/hexagon.png';
 import { ABOUT_ME } from '@constants/index';
+import SkillItem from './SkillItem';
+import HexagonImage from './HexagonImage';
 import styles from '@styles/About.module.scss';
 
 export default function About() {
@@ -9,9 +9,7 @@ export default function About() {
       <h2 className={styles.title}>{ABOUT_ME.title}</h2>
       <ul className={styles.content}>
         <li className={styles.hexagon}>
-          <figure>
-            <Image src={hexagonImage} layout="fill" alt="David basto" objectFit="contain" />
-          </figure>
+          <HexagonImage />
         </li>
         <li className={styles.text}>
           <p>{ABOUT_ME.description}</p>
@@ -20,12 +18,7 @@ export default function About() {
           <h3 className={styles.technologiesTitle}>Technologies</h3>
           <ul className={styles.skills}>
             {ABOUT_ME.skills.map((skill, index) => (
-              <li key={index} className={styles.skill}>
-                <figure>
-                  <Image src={skill.icon} layout="fill" alt={skill.name} objectFit="contain" />
-                </figure>
-                <p>{skill.name}</p>
-              </li>
+              <SkillItem key={`skill-${index}`} name={skill.name} icon={skill.icon} />
             ))}
           </ul>
         </li>

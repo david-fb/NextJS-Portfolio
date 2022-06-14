@@ -78,6 +78,36 @@ a {
   }
 }
 
+.gray {
+  filter: grayscale(1);
+}
+
+.grayOut {
+  animation: grayScaleOut 0.5s ease-in-out;
+}
+
+.grayIn {
+  animation: grayScaleIn 0.5s ease-in-out;
+}
+
+@keyframes grayScaleOut {
+  0% {
+    filter: grayscale(1);
+  }
+  100% {
+    filter: grayscale(0);
+  }
+}
+
+@keyframes grayScaleIn {
+  0% {
+    filter: grayscale(0);
+  }
+  100% {
+    filter: grayscale(1);
+  }
+}
+
 .canvasParticles {
   animation: opacity 1.5s ease-in-out;
 }

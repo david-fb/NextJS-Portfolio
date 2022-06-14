@@ -9,6 +9,7 @@
             "@components/*":["components/*"],
             "@config/*":["config/*"],
             "@constants/*": ["constants/*"],
+            "@helpers/*": ["helpers/*"],
         }
     }
 }

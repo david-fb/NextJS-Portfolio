@@ -7,54 +7,54 @@
   padding: 15px;
   color: $on-surface-color;
   flex-direction: column;
+}
 
-  & .title {
-    font-size: 25px;
-    color: $primary-color;
-    margin-top: 15px;
-  }
-  & .subtitle {
+.title {
+  font-size: 25px;
+  color: $primary-color;
+  margin-top: 15px;
+}
+.subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: -9px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.1;
+  margin-top: 15px;
+}
+
+.technologies {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  & .item {
+    background-color: $surface-02p-color;
+    padding: 0 5px;
     font-size: 13px;
-    font-weight: 600;
-    margin-top: -9px;
   }
+}
 
-  & .description {
-    font-size: 16px;
-    line-height: 1.1;
-    margin-top: 15px;
-  }
-
-  & .technologies {
-    list-style: none;
+.links {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  padding: 8px;
+  & .link {
+    height: 25px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    gap: 3px;
 
-    & .item {
-      background-color: $surface-02p-color;
-      padding: 0 5px;
-      font-size: 13px;
-    }
-  }
-
-  & .links {
-    display: flex;
-    gap: 15px;
-    margin-top: auto;
-    padding: 8px;
-    & .link {
-      height: 25px;
-      display: flex;
-      gap: 3px;
-
-      & .linkImage {
-        position: relative;
-        height: 100%;
-        aspect-ratio: 1 / 1;
-      }
+    & .linkImage {
+      position: relative;
+      height: 100%;
+      aspect-ratio: 1 / 1;
     }
   }
 }

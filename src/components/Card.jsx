@@ -5,18 +5,22 @@ import { useRef } from 'react';
 import Slider from './Slider';
 import videoIcon from '@assets/icons/video-icon.svg';
 import linkIcon from '@assets/icons/link-icon.svg';
+import grayAnimation from '@helpers/grayAnimation';
 
 export default function Card({ project }) {
   const sliderRef = useRef(null);
-  const handleMouseEnter = () => {
-    sliderRef.current.firstChild.style.filter = 'grayscale(0%)';
+  const { handleMouseEnter, handleMouseLeave } = grayAnimation();
+
+  const createHandleMouseEnter = () => {
+    handleMouseEnter(sliderRef.current.firstChild);
   };
-  const handleMouseLeave = () => {
-    sliderRef.current.firstChild.style.filter = 'grayscale(100%)';
+
+  const createHandleMouseLeave = () => {
+    handleMouseLeave(sliderRef.current.firstChild);
   };
 
   return (
-    <div className={styles.container} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={styles.container} onMouseEnter={createHandleMouseEnter} onMouseLeave={createHandleMouseLeave}>
       <Slider ref={sliderRef} images={project.images} />
       <h3 className={styles.title}>{project?.title}</h3>
       <p className={styles.subtitle}>{project.area.join(' & ')}</p>
